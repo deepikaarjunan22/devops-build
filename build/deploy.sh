@@ -13,9 +13,9 @@ IMAGE="deepikaarjunan/${ENV}-repo:${BUILD_NUMBER}"
 docker rm -f "${CONTAINER_NAME}" || true
 
 if [ "$ENV" = "dev" ]; then
-	PORT=80
+	PORT=8082
 else 
-	PORT=8080
+	PORT=8085
 fi
 
 docker run -d -p ${PORT}:80 --name "${CONTAINER_NAME}" "${IMAGE}"
