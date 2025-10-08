@@ -1,3 +1,11 @@
 #!/bin/bash
 
-docker build -t deepikaarjunan/dev-repo:${BUILD_NUMBER} .
+ENV=$1
+
+if [ -z "$ENV" ]; then
+	ENV="dev"
+fi
+
+image="${ENV}-repo"
+
+docker build -t "deepikaarjunan/${image}:${BUILD_NUMBER}" .
