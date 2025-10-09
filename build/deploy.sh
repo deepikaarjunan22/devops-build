@@ -9,6 +9,6 @@ fi
 export ENV
 export BUILD_NUMBER
 
-docker compose down || true
+docker-compose down || true
 
-docker compose up -d
+docker-compose up -d
