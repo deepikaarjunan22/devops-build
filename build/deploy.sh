@@ -6,16 +6,9 @@ if [ -z "$ENV" ]; then
 	ENV="dev"
 fi
 
-CONTAINER_NAME="${ENV}-app"
+export ENV
+export BUILD_NUMBER
 
-IMAGE="deepikaarjunan/${ENV}-repo:${BUILD_NUMBER}"
+docker compose down || true
 
-docker rm -f "${CONTAINER_NAME}" || true
-
-if [ "$ENV" = "dev" ]; then
-	PORT=8082
-else 
-	PORT=8085
-fi
-
-docker run -d -p ${PORT}:80 --name "${CONTAINER_NAME}" "${IMAGE}"
+docker compose up -d

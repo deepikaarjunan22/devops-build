@@ -1,0 +1,10 @@
+versions: '3.8'
+
+services:
+  react-app:
+    image: "deepikaarjunan/${ENV}-repo:${BUILD_NUMBER}"
+    container_name: "${ENV}-app"
+    ports:
+      - "9090:80"
+    restart: "always"
+
