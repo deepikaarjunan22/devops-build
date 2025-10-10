@@ -1,11 +1,17 @@
 #!/bin/bash
 
+
 ENV=$1
+BUILD=$2
 
 if [ -z "$ENV" ]; then
-	ENV="dev"
+    ENV="dev"
 fi
 
-image="${ENV}-repo"
+if [ -z "$BUILD" ]; then
+    BUILD="latest"
+fi
 
-docker build -t "deepikaarjunan/${image}:${BUILD_NUMBER}" .
+REPO="deepikaarjunan/${ENV}-repo"
+
+docker build -t ${REPO}:${BUILD} .
