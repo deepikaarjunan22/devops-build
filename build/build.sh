@@ -6,6 +6,10 @@ if [ -z "$ENV" ]; then
 	ENV="dev"
 fi
 
+if [ -z "$BUILD" ]; then
+	BUILD="latest"
+fi
+
 image="${ENV}-repo"
 
-docker build -t "deepikaarjunan/${image}:${BUILD_NUMBER}" .
+docker build -t "deepikaarjunan/${image}:${BUILD}" .
